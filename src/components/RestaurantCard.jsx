@@ -1,13 +1,16 @@
 import { CDN_URL } from "../utils/contents";
+import { TiStar } from "react-icons/ti";
+import { RiEBike2Fill } from "react-icons/ri";
 
 const RestaurantCard = ({ resData }) => {
-
   const {
     cloudinaryImageId,
     name,
     cuisines = [],
     avgRating,
-    sla
+    sla,
+    locality,
+    costForTwo,
   } = resData;
 
   if (!cloudinaryImageId || typeof cloudinaryImageId !== "string") return null;
@@ -16,11 +19,28 @@ const RestaurantCard = ({ resData }) => {
 
   return (
     <div className="res-card">
-      <img src={imageUrl} alt={name} className="card-image" />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating} rating</h4>
-      <h4>{sla?.deliveryTime} minutes</h4>
+      <div className="img-div">
+        <img src={imageUrl} alt={name} className="card-image" />
+      </div>
+
+      <h3 className="restautant-name">{name}</h3>
+      <div className="rate-overall-container">
+        <div className="rate-container">
+        <span className="rate-circle">
+          <TiStar className="rate-icon" />
+        </span>
+        <span className="rate-count">{avgRating} rating</span>
+      </div>
+      <p>{costForTwo}</p>
+      </div>
+      <p className="cuisine-list">{cuisines.join(", ")}</p>
+      <div className="location-time">
+        <p className="location-text">{locality}</p>
+        <p className="delivery-icon">
+          •<RiEBike2Fill style={{ color: "darkorange" }} /> {sla?.deliveryTime}{" "}
+          minutes
+        </p>
+      </div>
     </div>
   );
 };

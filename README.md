@@ -15,9 +15,9 @@
 
 - **Frontend**: React.js, React Router, JSX
 - **Styling**: CSS3 / Tailwind CSS (or Styled Components)
-- **State Management**: useState, useEffect (or Redux if applicable)
+- **State Management**: useState, useEffect, Redux
 - **Icons**: React Icons
-- **Mock Data**: Swiggy public API or mock JSON
+- **Mock Data**: Swiggy public API & mock JSON
 
 <!-- ## 📸 Screenshots
 
